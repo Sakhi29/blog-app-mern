@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const bcryptjs = require("bcryptjs");
-const signup = async (req, res) => {
+const { errorHandler } = require("../utils/error");
+const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
 
   if (
@@ -11,7 +12,7 @@ const signup = async (req, res) => {
     email === "" ||
     password === ""
   ) {
-    return res.status(404).json({ message: "All fields are required" });
+    next(errorHandler(400, "All fields are required"));
   }
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -26,7 +27,7 @@ const signup = async (req, res) => {
     await newUser.save();
     res.json("SignUp successfull!");
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
