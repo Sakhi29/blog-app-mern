@@ -7,6 +7,7 @@ import {
   BsGithub,
   BsLinkedin,
 } from "react-icons/bs";
+
 export default function FooterCom() {
   return (
     <Footer container className="border border-t-8 border-red-400">
