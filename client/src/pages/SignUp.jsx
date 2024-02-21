@@ -48,8 +48,8 @@ export default function SignUp() {
             Blog
           </Link>
           <p className="text-sm mt-5">
-            This is a blog project. You can signup with your email and password
-            or login with Google.
+            This is a blog project. You can signup with your email & password or
+            login with Google.
           </p>
         </div>
 

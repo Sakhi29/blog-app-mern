@@ -1,16 +1,15 @@
 import { Button, Navbar, TextInput } from "flowbite-react";
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
 
 export default function Header() {
-  const path = useLocation().pathname;
   return (
     <Navbar className="border-b-2">
       <Link
         to="/"
-        className=" self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
+        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
         <span className="px-2 py-1 bg-gradient-to-r from-yellow-400 via-pink-400 to-red-400 rounded-lg">
           ReadIt
@@ -40,17 +39,17 @@ export default function Header() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link>
+        <Navbar.Link as={"div"}>
           <Link to="/" className="hover:text-pink-500">
             Home
           </Link>
         </Navbar.Link>
-        <Navbar.Link>
+        <Navbar.Link as={"div"}>
           <Link to="/about" className="hover:text-pink-500">
             About
           </Link>
         </Navbar.Link>
-        <Navbar.Link>
+        <Navbar.Link as={"div"}>
           <Link to="/projects" className="hover:text-pink-500">
             Projects
           </Link>
