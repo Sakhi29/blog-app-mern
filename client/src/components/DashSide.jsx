@@ -4,10 +4,12 @@ import { HiUser, HiArrowSmRight } from "react-icons/hi";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { signOutSuccess } from "../redux/user/userSlice";
+import { useDispatch } from "react-redux";
 
 export default function DashSide() {
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [tab, setTab] = useState("");
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
@@ -49,7 +51,11 @@ export default function DashSide() {
               Profile
             </Sidebar.Item>
           </Link>
-          <Sidebar.Item onClick={handleSignOut} className="cursor-pointer" icon={HiArrowSmRight}>
+          <Sidebar.Item
+            onClick={handleSignOut}
+            className="cursor-pointer"
+            icon={HiArrowSmRight}
+          >
             Sign Out
           </Sidebar.Item>
         </Sidebar.ItemGroup>
