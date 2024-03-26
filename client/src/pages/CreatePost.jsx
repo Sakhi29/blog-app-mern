@@ -101,8 +101,8 @@ export default function CreatePost() {
           >
             <option value="uncategorized">Select a category</option>
             <option value="javascript">JavaScript</option>
-            <option value="javascript">React.js</option>
-            <option value="javascript">Next.js</option>
+            <option value="reactjs">React.js</option>
+            <option value="nextjs">Next.js</option>
           </Select>
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-red-400 border-dotted p-3">
