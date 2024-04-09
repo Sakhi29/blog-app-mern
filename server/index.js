@@ -7,6 +7,7 @@ const authRoute = require("./routes/auth.js");
 const postRoute = require("./routes/post.js");
 const commentRoute = require("./routes/comment.js");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ mongoose
     console.log(err);
   });
 
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -30,6 +32,12 @@ app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
 app.use("/api/comment", commentRoute);
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
